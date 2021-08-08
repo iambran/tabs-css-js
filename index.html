@@ -21,6 +21,9 @@
             </div>
 
             <div id="img-container" style="background-image: url('sun.jpg');">
+                <div class="img-overlay sun show"></div>
+                <div class="img-overlay rain"></div>
+                <div class="img-overlay snow"></div>
             </div>
         </div>
     </section>
@@ -36,7 +39,24 @@ document.querySelectorAll('#button-container button').forEach(button => {
         let imgUrl = `${whether}.jpg`;
         // console.log(imgUrl);
 
-        document.querySelector('#img-container').style.backgroundImage = `url(${imgUrl})`;
+        // document.querySelector('#img-container').style.backgroundImage = `url(${imgUrl})`;
+
+        let currentImgOverlay = document.querySelector(`.img-overlay.${whether}`);
+        let restImgOverlay = document.querySelectorAll(`.img-overlay:not(.${whether})`);
+        console.log(restImgOverlay);
+
+        if (!currentImgOverlay.classList.contains('show')) {
+            restImgOverlay.forEach(overlay => {
+                overlay.classList.remove('show');
+            });
+            currentImgOverlay.classList.add('show');
+            setTimeout(() => {
+                document.querySelector('#img-container').style.backgroundImage = `url(${imgUrl})`;
+            }, 500);
+            
+        }
+        
+        console.log(currentImgOverlay);
 
     });
 });

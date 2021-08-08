@@ -46,6 +46,53 @@ body {
     box-shadow: 0 2px 8px rgb(241 242 242 / 5%);
     background-size: cover;
     background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-overlay {
+    position: absolute;
+    content: "";
+    /* width: 0; */
+    width: 100%;
+    left: -100%;
+
+
+    height: 100%;
+    border-radius: 10px;
+}
+
+.img-overlay.show {
+    animation: overlay 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) alternate;
+    pointer-events: none;
+}
+
+.img-overlay.sun {
+    background-color: #00bf9c;
+}
+.img-overlay.rain {
+    background-color: #e8384f;
+}
+.img-overlay.snow {
+    background-color: #fd9a00;
+}
+@keyframes overlay {
+    0% {
+        /* width: 0; */
+
+        left: -100%;
+    }
+    50% {
+        /* width: 100%; */
+
+        left: 0;
+    }
+    100% {
+        /* width: 0; */
+
+        left: 100%;
+    }
+    
 }
 
 #buttons {
