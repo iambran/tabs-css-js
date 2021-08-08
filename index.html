@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tab Animation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section>
+        <div id="wrapper">
+            <div id="button-container">
+                    <button class="sun">晴天</button>
+                    <button class="rain">雨天</button>
+                    <button class="snow">雪天</button>
+            </div>
+
+            <div id="img-container" style="background-image: url('sun.jpg');">
+            </div>
+        </div>
+    </section>
+
+<script>
+
+document.querySelectorAll('#button-container button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        let whether = e.target.className;
+        // console.log(e.target.className);
+        // console.log(whether);
+
+        let imgUrl = `${whether}.jpg`;
+        // console.log(imgUrl);
+
+        document.querySelector('#img-container').style.backgroundImage = `url(${imgUrl})`;
+
+    });
+});
+</script>
+</body>
+</html>
