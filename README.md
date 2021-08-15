@@ -1,13 +1,13 @@
 # Tabs with Image Overlay
 
-This tab is a my personal practice for CSS & JavaScript. The image overlay idea is inspired by this website: https://asana.com/
-
-
+This tab is my personal practice on JavaScript. Image overlay idea is inspired by this website: https://asana.com/ <br>
 
 ### JAVASCRIPT
 ```javascript
 document.querySelectorAll('#button-container button').forEach(button => {
+
     button.addEventListener('click', function(e) {
+
         let whether = e.target.className;
 
         let imgUrl = `${whether}.jpg`;
@@ -73,6 +73,7 @@ document.querySelectorAll('#button-container button').forEach(button => {
     line-height: 1.2;
     cursor: pointer;
 }
+
 #button-container button:not(:first-child) {
     margin-top: 20px;
 }
@@ -118,6 +119,7 @@ document.querySelectorAll('#button-container button').forEach(button => {
 .img-overlay.snow {
     background-color: #fd9a00;
 }
+
 @keyframes overlay {
     0% { left: -100%; }
     50% { left: 0; }
